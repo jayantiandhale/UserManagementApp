@@ -1,0 +1,5 @@
+/GET
+http://localhost:9000/1
+
+/PUT
+curl -X PUT http://localhost:9000/user_id/4/name/hello/high_score/9/last_login/904
