@@ -9,6 +9,8 @@ object User {
         "high_score" -> user.high_score,
         "last_login" -> user.last_login
         )
+        
+       Console.println("New User created with user_id: " )
         }
 } 
 case class User(user_id: Int, name: String, high_score: Int, last_login: String)

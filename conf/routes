@@ -2,18 +2,20 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
-# An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
-
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(file)
+#Get all users
+GET 	/users									controllers.UserController.users()
 
 # An API showing user information
-GET     /:user_id                          controllers.UserController.user(user_id: Int)
+GET     /users/:user_id                          controllers.UserController.user(user_id: Int)
+
+#create new user
+POST 	/users/:user_id								controllers.UserController.add(user_id: Int)
+
+#update user information
+PUT 	/users/:user_id									controllers.UserController.edit(user_id: Int)
+
+#delete user information			
+DELETE	/users/:user_id							controllers.UserController.delete(user_id: Int)				
 
 # An API creating/updating user information
-PUT		/user_id/:user_id/name/:name/high_score/:high_score/last_login/:last_login				controllers.UserController.add(user_id: Int, name: String, high_score: Int, last_login: String)
+#PUT		/users/user_id/:user_id/name/:name/high_score/:high_score/last_login/:last_login				controllers.UserController.add(user_id: Int, name: String, high_score: Int, last_login: String)

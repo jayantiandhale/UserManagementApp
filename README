@@ -3,3 +3,51 @@ http://localhost:9000/1
 
 /PUT
 curl -X PUT http://localhost:9000/user_id/4/name/hello/high_score/9/last_login/904
+
+
+
+#session
+- default session management by cookies
+- at most 4KB of data can be held by cookies
+- support only strings
+- cookies signed to avoid external manipulation
+- cookies close when session expires
+
+helpers to manage session
+eg.
+//to get session value
+def myAction =Action{
+implicit request =>
+val username=session.get("username")
+Ok()
+}
+
+//to set session value
+def myAction=Action{
+Ok().withSession("username"->"jack.amber")
+}
+
+- mark the action request as implicit
+- set session value on return response
+
+#flash scope
+- short lived session
+- only appicable to current request and response
+eg.
+//get session
+flash.get("msg"
+Ok().flashing("msg"->"shortLivedMsg")
+
+#Request Object - wrapper over low level HTTP request
+- most part read only
+- accessible to
+	request cookies, HTTP headers, Acceptable media types, request body and method, query string values,etc
+
+
+
+
+
+
+
+
+
